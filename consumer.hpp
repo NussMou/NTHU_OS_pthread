@@ -61,6 +61,7 @@ void* Consumer::process(void* arg) {
 		// 1. fetch from worker_queue
 		// 2. transform
 		// 3. place to output_queue
+		// printf("in consumer.hpp: worker_queue size = %d\n", consumer->worker_queue->get_size());
 		Item* item = consumer->worker_queue->dequeue();
         item->val = consumer->transformer->consumer_transform(item->opcode, item->val);
         consumer->output_queue->enqueue(item); 

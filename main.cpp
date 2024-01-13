@@ -51,6 +51,7 @@ int main(int argc, char** argv) {
 	// printf("writer finish\n");
 	producer1.start(); producer2.start(); producer3.start(); producer4.start();
 	// printf("producer finish\n");
+
 	consumer_controller.start();
 	// printf("consumer_controller finish\n");
 

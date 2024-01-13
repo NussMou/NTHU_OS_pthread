@@ -51,7 +51,7 @@ void* Writer::process(void* arg) {
 	while(writer->expected_lines--){
 		Item* item = writer->output_queue->dequeue();
 		writer->ofs << *item;
-		// printf("writer join debug : %d\n", writer->expected_lines);
+		// printf("writer join debug expected_lines: %d\n", writer->expected_lines);
 	}
 	return NULL;
 }

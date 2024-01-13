@@ -90,9 +90,10 @@ void* ConsumerController::process(void* arg) {
 			Consumer* new_consumer = new Consumer(controller->worker_queue, controller->writer_queue, controller->transformer);
             new_consumer->start();
             controller->consumers.push_back(new_consumer);
-			// printf("size = %d, high = %d\n", size, controller->high_threshold);
+			// printf("worker_queue size = %d, high = %d\n", size, controller->high_threshold);
 			printf("Scaling up consumers from %d to %d\n", controller->consumers.size()-1, controller->consumers.size());
 		}
+		usleep(controller->check_period);
 	}
 
 	return NULL;
